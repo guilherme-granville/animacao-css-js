@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exemplo de Animação em CSS</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Animação em CSS</h1>
+    <div class="container">
+        <div class="topico">
+            <h2>1: Início e Fim Lentos</h2>
+            <div class="square animation-1">ease-in-out</div>
+        </div>
+        <div class="topico" style="display: none;">
+            <h2>2: Mesma Velocidade</h2>
+            <div class="square animation-2">linear</div>
+        </div>
+        <div class="topico" style="display: none;">
+            <h2>3: Início Lento</h2>
+            <div class="square animation-3">ease-in</div>
+        </div>
+        <div class="topico" style="display: none;">
+            <h2>4: Fim Lento</h2>
+            <div class="square animation-4">ease-out</div>
+        </div>
+        <div class="topico" style="display: none;">
+            <h2>5: Início e Fim Lentos</h2>
+            <div class="square animation-5">ease-in-out</div>
+        </div>
+        <div class="topico" style="display: none;">
+            <h2>6: Padrão para Cada Fase</h2>
+            <div class="square animation-6">cubic-bezier()</div>
+        </div>
+    </div>
+    <script>
+        const topics = document.querySelectorAll('.topico');
+        let topicoAtual = 0;
+
+        function showNextTopic() {
+            topics[topicoAtual].style.display = 'none';
+            topicoAtual = (topicoAtual + 1) % topics.length;
+            topics[topicoAtual].style.display = 'flex';
+        }
+        setInterval(showNextTopic, 5000);
+    </script>
+
+</body>
+
+</html>
